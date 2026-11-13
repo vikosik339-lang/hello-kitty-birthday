@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для самой лучшей подружки 🎀</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Caveat:wght@600;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff0f6;
+  color: #a74370;
+  font-family: 'Comfortaa', sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 28px 15px 12px;
+}
+
+h1 {
+  font-size: clamp(28px, 7vw, 48px);
+  color: #ed70a5;
+  text-shadow: 2px 3px white;
+}
+
+h2 { color: #e66b9e; }
+
+p { line-height: 1.8; }
+
+.card {
+  background: rgba(255,255,255,.85);
+  border: 2px solid #ffc5dc;
+  border-radius: 28px;
+  padding: 25px 18px;
+  max-width: 600px;
+  margin: 22px auto;
+  width: 90%;
+  box-shadow: 0 8px 25px #e99bb533;
+}
+
+button {
+  background: #f48bb6;
+  color: white;
+  border: 0;
+  border-radius: 30px;
+  padding: 14px 22px;
+  margin: 8px;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 4px 0 #d96798;
+  transition: .2s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  background: #ed6fa5;
+}
+
+button:active { transform: scale(.96); }
+
+.hidden { display: none; }
+
+.cat {
+  position: relative;
+  width: 145px;
+  height: 110px;
+  background: white;
+  border: 4px solid #f5a8c7;
+  border-radius: 48% 48% 42% 42%;
+  margin: 35px auto 20px;
+}
+
+.ear {
+  position: absolute;
+  width: 45px;
+  height: 48px;
+  background: white;
+  border: 4px solid #f5a8c7;
+  top: -24px;
+  z-index: -1;
+}
+.ear.left { left: -4px; transform: rotate(-25deg); }
+.ear.right { right: -4px; transform: rotate(25deg); }
+
+.eye {
+  position: absolute;
+  top: 45px;
+  width: 8px;
+  height: 12px;
+  border-radius: 50%;
+  background: #55414a;
+}
+.eye.left { left: 40px; }
+.eye.right { right: 40px; }
+
+.nose {
+  position: absolute;
+  top: 57px;
+  left: 65px;
+  width: 12px;
+  height: 8px;
+  background: #f3c45d;
+  border-radius: 50%;
+}
+
+.whisker {
+  position: absolute;
+  top: 62px;
+  width: 27px;
+  height: 2px;
+  background: #d99ab5;
+}
+.w1 { left: 8px; transform: rotate(12deg); }
+.w2 { left: 8px; top: 72px; transform: rotate(-12deg); }
+.w3 { right: 8px; transform: rotate(-12deg); }
+.w4 { right: 8px; top: 72px; transform: rotate(12deg); }
+
+.bow {
+  position: absolute;
+  top: -28px;
+  right: -13px;
+  width: 42px;
+  height: 26px;
+  background: #ff4e94;
+  border-radius: 50%;
+  transform: rotate(15deg);
+}
+.bow:before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #ff4e94;
+  border-radius: 50%;
+  left: 13px;
+  top: 5px;
+  border: 2px solid #e84283;
+}
+.bow:after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 23px;
+  background: #ff77ac;
+  border-radius: 50%;
+  left: -7px;
+  top: 1px;
+}
+
+.gift {
+  font-size: 100px;
+  cursor: pointer;
+  display: inline-block;
+  transition: .5s;
+}
+.gift:hover { transform: rotate(-12deg) scale(1.12); }
+
+.cake {
+  font-size: 100px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.message {
+  font-family: 'Caveat', cursive;
+  font-size: 27px;
+  color: #ce558b;
+  line-height: 1.5;
+}
+
+footer {
+  padding: 35px;
+  color: #db78a3;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: floatUp 5s linear forwards;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+#surprise { animation: appear .8s ease; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.secret {
+  background: #fff4f8;
+  padding: 18px;
+  border-radius: 18px;
+  margin: 12px 0;
+  border: 1px dashed #f3a2c5;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div style="font-size:25px">🎀 💗 🎀</div>
+  <h1>Привет, моя хорошая!</h1>
+  <p>У меня для тебя кое-что особенное...</p>
+</header>
+
+<div class="card">
+  <div class="cat">
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+    <div class="whisker w1"></div>
+    <div class="whisker w2"></div>
+    <div class="whisker w3"></div>
+    <div class="whisker w4"></div>
+    <div class="bow"></div>
+  </div>
+  <h2>Маленький сюрприз для тебя 🎁</h2>
+  <p>Нажми на подарочек, чтобы узнать, что внутри!</p>
+  <div class="gift" onclick="openGift()">🎁</div>
+  <div id="surprise" class="hidden">
+    <h2>УРААА! 💗</h2>
+    <p class="message">Этот день посвящён тебе, прекрасная!</p>
+    <button onclick="showBirthday()">Перейти к поздравлению 💌</button>
+  </div>
+</div>
+
+<div id="birthday" class="card hidden">
+  <h1>С ДНЁМ РОЖДЕНИЯ! 🎂</h1>
+  <div class="cake" onclick="blowCandles()">🎂</div>
+  <p>Нажми на тортик и загадай желание!</p>
+  <p id="candleText" class="message"></p>
+
+  <h2>Моё поздравление 💌</h2>
+  <p class="message" id="mainMessage">
+    Здесь скоро появится наше особенное поздравление!
+    Мы обязательно напишем его вместе. 🎀
+  </p>
+</div>
+
+<div id="secrets" class="card hidden">
+  <h2>Маленькие послания для тебя 💗</h2>
+  <p>Выбирай любую кнопочку!</p>
+
+  <button onclick="secret(0)">🌷 Ты особенная</button>
+  <button onclick="secret(1)">💗 Открой, когда грустно</button>
+  <button onclick="secret(2)">🎀 Маленький секрет</button>
+  <button onclick="secret(3)">🧸 Наши воспоминания</button>
+  <button onclick="secret(4)">✨ Ещё одно пожелание</button>
+
+  <div id="secretText" class="secret hidden message"></div>
+</div>
+
+<div class="card">
+  <h2>И напоследок... 💕</h2>
+  <p class="message">Спасибо, что ты есть в моей жизни!</p>
+  <div style="font-size:45px">🎀 💗 🧸 💗 🎀</div>
+  <p>С любовью, твой человек 💌</p>
+</div>
+
+<footer>
+  Сделано с любовью специально для тебя ♡
+</footer>
+
+<script>
+function openGift() {
+  document.getElementById('surprise').classList.remove('hidden');
+  hearts();
+}
+
+function showBirthday() {
+  document.getElementById('birthday').classList.remove('hidden');
+  document.getElementById('secrets').classList.remove('hidden');
+  document.getElementById('birthday').scrollIntoView({behavior:'smooth'});
+  hearts();
+}
+
+function blowCandles() {
+  document.getElementById('candleText').textContent =
+    'Пусть все твои желания обязательно сбудутся! 🕯️💗';
+  hearts();
+}
+
+const messages = [
+  'Ты невероятная, и я очень рада, что ты есть в моей жизни! 🎀',
+  'Даже если день не задался, помни: ты достойна всего самого прекрасного. 💗',
+  'Секрет: ты одна из самых дорогих мне людей. 🤫',
+  'Каждое наше воспоминание — маленькое сокровище! 🧸',
+  'Желаю тебе счастья, любви, исполнения мечт и бесконечных поводов улыбаться! ✨'
+];
+
+function secret(n) {
+  const box = document.getElementById('secretText');
+  box.textContent = messages[n];
+  box.classList.remove('hidden');
+  hearts();
+}
+
+function hearts() {
+  const symbols = ['💗','💕','🎀','💖','✨','🌸'];
+  for(let i=0;i<15;i++) {
+    const h = document.createElement('div');
+    h.className = 'heart';
+    h.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    h.style.left = Math.random()*100+'vw';
+    h.style.fontSize = (15+Math.random()*20)+'px';
+    h.style.animationDuration = (3+Math.random()*3)+'s';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  }
+}
+</script>
+</body>
+</html>
