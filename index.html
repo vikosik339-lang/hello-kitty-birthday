@@ -4,427 +4,648 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для моей Машки 💗</title>
+<title>Подарок для Машки 🎀</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: 'Trebuchet MS', Arial, sans-serif;
-  background: linear-gradient(135deg, #ffe0ef, #fff0f7, #ffd1e6);
-  color: #9e416c;
+  color: #a43e70;
   text-align: center;
+  background: linear-gradient(145deg,#ffe3ef,#fff4f8,#ffd2e5);
   overflow-x: hidden;
 }
 
-section {
-  padding: 45px 18px;
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 35px 18px 110px;
+  animation: appear .8s ease;
+}
+
+.screen.active { display: block; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
-  color: #e75b9a;
-  font-size: clamp(28px, 6vw, 43px);
+  color: #e65396;
+  font-size: clamp(29px,7vw,43px);
 }
 
-h2 {
-  color: #e75b9a;
-}
+h2 { color: #e65396; }
 
-p {
-  line-height: 1.7;
+p { line-height: 1.7; }
+
+.subtitle {
+  font-size: 18px;
+  color: #b45c85;
 }
 
 button {
   border: none;
   border-radius: 30px;
-  padding: 14px 24px;
-  background: #ff82b7;
+  padding: 14px 25px;
+  margin: 8px;
+  background: linear-gradient(135deg,#ff91bd,#f45d9c);
   color: white;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 5px 12px #e98ab866;
-  transition: 0.25s;
+  box-shadow: 0 5px 15px #e77ba755;
+  transition: .25s;
 }
 
 button:hover {
   transform: scale(1.06);
-  background: #ed5c9c;
+}
+
+button:active { transform: scale(.96); }
+
+.secondary {
+  background: white;
+  color: #e65396;
+  border: 2px solid #ffb6d4;
 }
 
 .card {
-  background: #ffffffd9;
-  border: 2px solid #ffc1dc;
-  border-radius: 25px;
-  padding: 25px;
   max-width: 650px;
   margin: 25px auto;
-  box-shadow: 0 8px 25px #e88bb533;
+  padding: 25px;
+  background: #ffffffdf;
+  border: 2px solid #ffc0dc;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px #df8db533;
 }
 
-/* Hello Kitty */
-.kitty {
-  position: relative;
-  width: 145px;
-  height: 115px;
-  background: white;
-  border: 4px solid #f2a2c5;
-  border-radius: 48% 48% 43% 43%;
-  margin: 30px auto 20px;
+.decoration {
+  font-size: 30px;
+  margin: 15px;
 }
 
-.kitty:before,
-.kitty:after {
-  content: "";
-  position: absolute;
-  top: -15px;
-  width: 42px;
-  height: 42px;
-  background: white;
-  border: 4px solid #f2a2c5;
-  z-index: -1;
+/* ПОДАРОЧНАЯ КОРОБОЧКА */
+
+.gift-scene {
+  height: 310px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 900px;
+  margin-top: 25px;
 }
 
-.kitty:before {
-  left: 3px;
-  transform: rotate(-25deg);
-  border-radius: 8px 25px 5px 20px;
-}
-
-.kitty:after {
-  right: 3px;
-  transform: rotate(25deg);
-  border-radius: 25px 8px 20px 5px;
-}
-
-.eye {
-  position: absolute;
-  top: 43px;
-  width: 8px;
-  height: 13px;
-  background: #49353d;
-  border-radius: 50%;
-}
-
-.eye.left { left: 35px; }
-.eye.right { right: 35px; }
-
-.nose {
-  position: absolute;
-  top: 60px;
-  left: 63px;
-  width: 13px;
-  height: 9px;
-  background: #f5bd3e;
-  border-radius: 50%;
-}
-
-.whiskers {
-  position: absolute;
-  top: 66px;
-  left: 8px;
-  font-size: 22px;
-  color: #555;
-}
-
-.whiskers.right {
-  left: auto;
-  right: 8px;
-  transform: scaleX(-1);
-}
-
-.bow {
-  position: absolute;
-  right: -24px;
-  top: 0;
-  color: #ff5b9c;
-  font-size: 48px;
-  transform: rotate(15deg);
-}
-
-/* Подарок */
 .gift {
-  width: 190px;
-  height: 150px;
-  margin: 65px auto 35px;
   position: relative;
+  width: 220px;
+  height: 180px;
+  transform-style: preserve-3d;
+  animation: giftBounce 2s ease-in-out infinite;
   cursor: pointer;
-  animation: bounce 2s infinite;
 }
 
-.gift-box {
+@keyframes giftBounce {
+  0%,100% { transform: translateY(0) rotateY(-5deg); }
+  50% { transform: translateY(-12px) rotateY(5deg); }
+}
+
+.box-body {
   position: absolute;
   bottom: 0;
-  width: 190px;
-  height: 115px;
-  background: #ff8fbd;
-  border: 4px solid #ec5f9e;
-  border-radius: 8px;
+  left: 10px;
+  width: 200px;
+  height: 135px;
+  border-radius: 8px 8px 15px 15px;
+  background: linear-gradient(120deg,#ff9bc5,#f45d9e);
+  border: 3px solid #e84d91;
+  box-shadow: 0 15px 25px #bd548555;
+  overflow: hidden;
 }
 
-.gift-box:before {
+.box-body:before {
   content: "";
   position: absolute;
-  width: 28px;
+  left: 78px;
+  width: 38px;
   height: 100%;
-  left: 77px;
-  background: #fff0a8;
+  background: #fff0a9;
 }
 
-.lid {
+.box-body:after {
+  content: "♡";
   position: absolute;
-  top: 15px;
-  left: -10px;
-  width: 210px;
-  height: 38px;
-  background: #ffb2d1;
-  border: 4px solid #ec5f9e;
+  color: white;
+  font-size: 48px;
+  top: 36px;
+  left: 125px;
+}
+
+.box-front {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg,#ffacd0,#f47aaf);
+  border-radius: 7px;
+  border: 2px solid #ed6aa3;
+}
+
+.box-front:before {
+  content: "";
+  position: absolute;
+  left: 78px;
+  height: 100%;
+  width: 38px;
+  background: #fff0a9;
+}
+
+.gift-lid {
+  position: absolute;
+  top: 37px;
+  left: 0;
+  width: 220px;
+  height: 43px;
+  background: linear-gradient(120deg,#ffc0dc,#ff83b5);
+  border: 3px solid #e84d91;
   border-radius: 8px;
-  z-index: 2;
-  transition: transform 1s;
+  z-index: 5;
+  transform-origin: 15px 100%;
+  transition: transform 1.3s cubic-bezier(.2,.8,.3,1);
 }
 
-.ribbon {
+.gift-bow {
   position: absolute;
-  top: -35px;
-  left: 65px;
-  font-size: 65px;
-  z-index: 3;
+  z-index: 7;
+  top: -30px;
+  left: 72px;
+  font-size: 75px;
+  transition: 1.2s;
+  filter: drop-shadow(0 4px 3px #c95b8b55);
 }
 
-.gift.open .lid {
-  transform: translateY(-85px) rotate(-15deg);
+.gift.open {
+  animation: none;
 }
 
-.gift.open .ribbon {
-  transform: translateY(-85px) rotate(-15deg);
-  transition: 1s;
+.gift.open .gift-lid {
+  transform: translate(-100px,-130px) rotate(-32deg);
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
+.gift.open .gift-bow {
+  transform: translate(50px,-140px) rotate(35deg);
+  opacity: 0;
+}
+
+.gift-note {
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  left: 20px;
+  width: 180px;
+  height: 115px;
+  padding-top: 25px;
+  background: #fff9fc;
+  border-radius: 10px;
+  color: #e65396;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+/* ТЕКСТ И ПИСЬМО */
+
+.letter {
+  text-align: left;
+  white-space: pre-line;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #944268;
+}
+
+.letter strong {
+  color: #e65396;
+}
+
+.cake {
+  font-size: 95px;
+  animation: cakeBounce 2s infinite;
+}
+
+@keyframes cakeBounce {
   50% { transform: translateY(-10px); }
 }
 
-/* Сердечки */
-.heart {
-  position: fixed;
-  bottom: -30px;
-  pointer-events: none;
-  animation: float 6s linear forwards;
-  z-index: 10;
+/* СЕКРЕТИКИ */
+
+.secret {
+  margin: 14px auto;
+  max-width: 500px;
+  padding: 15px;
+  border-radius: 20px;
+  background: #fff1f7;
+  border: 2px dashed #f3a1c4;
 }
 
-@keyframes float {
+.secret-text {
+  display: none;
+  padding: 10px;
+  animation: appear .5s ease;
+}
+
+.secret.show .secret-text {
+  display: block;
+}
+
+/* НАВИГАЦИЯ */
+
+.navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 5px;
+  background: #fff0f8ee;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #ffc2dc;
+  z-index: 20;
+}
+
+.navigation button {
+  padding: 12px 19px;
+  font-size: 14px;
+}
+
+.progress {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin: 15px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f5b5d0;
+  transition: .3s;
+}
+
+.dot.current {
+  background: #e65396;
+  transform: scale(1.4);
+}
+
+/* МУЗЫКА */
+
+.music-player {
+  position: fixed;
+  bottom: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(90%,500px);
+  padding: 8px;
+  background: white;
+  border: 2px solid #ffb6d4;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px #b95c8844;
+  z-index: 15;
+  display: none;
+}
+
+.music-player.visible { display: block; }
+
+.music-player iframe {
+  width: 100%;
+  height: 80px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* СЕРДЕЧКИ */
+
+.heart {
+  position: fixed;
+  bottom: -40px;
+  pointer-events: none;
+  z-index: 30;
+  animation: fly 5s linear forwards;
+}
+
+@keyframes fly {
   to {
     transform: translateY(-110vh) rotate(360deg);
     opacity: 0;
   }
 }
 
-.hidden {
-  display: none;
-}
-
-.message {
-  text-align: left;
-  white-space: pre-line;
-  line-height: 1.9;
-  font-size: 17px;
-}
-
-.secret {
-  margin: 12px;
-  background: #fff0f7;
-  border: 2px dashed #f4a2c7;
-  border-radius: 18px;
-  padding: 18px;
-}
-
-.secret p {
-  display: none;
-  margin-bottom: 0;
-}
-
-.secret.show p {
-  display: block;
-}
-
-.cake {
-  font-size: 90px;
-  animation: bounce 2s infinite;
-}
-
 footer {
-  padding: 35px;
-  color: #d66b9e;
+  color: #ce719b;
+  padding: 20px;
+  font-size: 13px;
+}
+
+@media(max-width:400px) {
+  .gift { transform: scale(.88); }
+  .gift.open { transform: scale(.88); }
+  .navigation button { margin: 4px; padding: 11px 14px; }
 }
 </style>
 </head>
 
 <body>
 
-<section id="start">
-  <h1>Для моей любимой Машки 💗</h1>
-  <p>У меня для тебя кое-что особенное...</p>
+<!-- ЭКРАН 1: ПОДАРОК -->
 
-  <div class="kitty">
-    <span class="eye left"></span>
-    <span class="eye right"></span>
-    <span class="nose"></span>
-    <span class="whiskers">≋</span>
-    <span class="whiskers right">≋</span>
-    <span class="bow">🎀</span>
+<section class="screen active" id="screen1">
+  <div class="decoration">🎀 💗 🎀</div>
+  <h1>Привет, Маня!!</h1>
+  <p class="subtitle">У меня для тебя кое-что особенное...</p>
+
+  <div class="gift-scene">
+    <div class="gift" id="gift" onclick="openGift()">
+      <div class="gift-note">Для самой<br>лучшей Мани 💗</div>
+      <div class="box-body">
+        <div class="box-front"></div>
+      </div>
+      <div class="gift-lid"></div>
+      <div class="gift-bow">🎀</div>
+    </div>
   </div>
 
-  <h2>Открой свой подарочек!</h2>
+  <h2>Твой сюрприз уже ждёт!</h2>
+  <p>Нажми на коробочку или кнопку ниже 🥹</p>
+  <button onclick="openGift()">Открыть подарок 🎁</button>
+  <div class="decoration">🐱 💕 ✨</div>
+</section>
 
-  <div class="gift" id="gift" onclick="openGift()">
-    <div class="lid"></div>
-    <div class="ribbon">🎀</div>
-    <div class="gift-box"></div>
+
+<!-- ЭКРАН 2: СЮРПРИЗ -->
+
+<section class="screen" id="screen2">
+  <div class="decoration">✨ 💗 ✨</div>
+  <h1>СЮРПРИЗ!!</h1>
+
+  <div style="font-size:100px">🎀🐱🎀</div>
+
+  <div class="card">
+    <h2>МАШКА, С ДНЁМ РОЖДЕНИЯЯЯ!!</h2>
+    <p>
+      Сегодня всё для тебя!
+      Никаких грустных мыслей,
+      только улыбки, подарки,
+      вкусняшки и любовь! 💗
+    </p>
+    <p>А теперь приготовься к следующему сюрпризу...</p>
   </div>
 
-  <button onclick="openGift()">Открыть подарок 💝</button>
+  <div class="decoration">💖 🎂 💖</div>
+  <button onclick="nextScreen(3)">Посмотреть дальше 💕</button>
 </section>
 
-<div id="content" class="hidden">
 
-<section>
-  <h1>СЮРПРИЗ ДЛЯ МАНИ!! 🎀</h1>
-  <p>Этот день принадлежит только тебе! 💗</p>
+<!-- ЭКРАН 3: МУЗЫКА И ТОРТИК -->
+
+<section class="screen" id="screen3">
+  <div class="decoration">🎵 🎀 🎵</div>
+  <h1>Музыка для тебя, Маня!</h1>
+
+  <div class="card">
+    <p>Включай праздничную песню и наслаждайся своим днём! 💗</p>
+    <div style="font-size:80px">🎂</div>
+    <h2>Happy Birthday!</h2>
+    <iframe
+      src="https://music.yandex.ru/iframe/album/6504367/track/47754370"
+      width="100%"
+      height="244"
+      frameborder="0"
+      allow="clipboard-write"
+      style="border:none;border-radius:15px;"
+      title="Happy Birthday — Kids Now">
+    </iframe>
+    <p><small>Нажми Play, чтобы включить музыку 🎶</small></p>
+  </div>
+
+  <div class="card">
+    <h2>А теперь загадай желание!</h2>
+    <div class="cake">🎂</div>
+    <button onclick="blowCandles()">Задуть свечи 🕯️</button>
+    <p id="wish"></p>
+  </div>
+
+  <button onclick="nextScreen(4)">К самому важному 💌</button>
 </section>
 
-<section class="card">
-  <h2>🎶 Музыка для тебя, Маня!</h2>
-  <p>Включай и наслаждайся своим днём рождения!</p>
 
+<!-- ЭКРАН 4: ПОЗДРАВЛЕНИЕ -->
+
+<section class="screen" id="screen4">
+  <div class="decoration">💌 🎀 💌</div>
+  <h1>Письмо для моей Машки</h1>
+
+  <div class="card letter">
+    <strong>МАШКА, С ДНЁМ РОЖДЕНИЯЯЯ!! 🎀💗</strong>
+
+    Ну что, старушка, ещё на один год ближе к пенсии! 😂
+
+    Желаю тебе денег столько, чтобы слово «скидка» перестало иметь для тебя значение, стальных нервов, удачи больше, чем у людей, которые случайно находят деньги в старых джинсах, поступить туда, куда планируешь, и любви такой, чтобы даже Hello Kitty обзавидовалась!
+
+    А если серьёзно…
+
+    Я очень рада, что ты есть в моей жизни. Спасибо тебе за наши разговоры, смех до слёз, странные приколы (Кевин Костнер), воспоминания и моменты («язык работает на 3%, а мозг на все 100%»), которые понятны только нам.
+
+    Я хочу, чтобы ты всегда оставалась такой же яркой, смешной, красивой и немного сумасшедшей (ну куда без этого 😂).
+
+    Пусть у тебя всё получается, мечты сбываются, рядом будут только искренние люди, а поводов плакать будет как можно меньше — и только от смеха.
+
+    <strong>Я тебя очень люблю, моя Машка! С днём рождения! 💗🎂</strong>
+
+    P.S. Не забывай, что ты прекрасна. Даже когда тупишь. Особенно когда тупишь. 🎀
+  </div>
+
+  <div class="decoration">🥹 💗 🥹</div>
+  <button onclick="nextScreen(5)">У меня есть ещё секретики 💕</button>
+</section>
+
+
+<!-- ЭКРАН 5: СЕКРЕТИКИ -->
+
+<section class="screen" id="screen5">
+  <div class="decoration">💗 💌 💗</div>
+  <h1>Секретики для Мани</h1>
+  <p>Нажимай на кнопочки. Там кое-что спрятано! 🎀</p>
+
+  <div class="secret">
+    <button onclick="toggleSecret(this)">Секрет №1 💗</button>
+    <div class="secret-text">
+      Ты невероятная, даже если иногда сама этого не замечаешь! 🥹
+    </div>
+  </div>
+
+  <div class="secret">
+    <button onclick="toggleSecret(this)">Секрет №2 🎀</button>
+    <div class="secret-text">
+      Никогда не переставай смеяться над нашими тупыми шутками. Особенно над Кевином Костнером 😂
+    </div>
+  </div>
+
+  <div class="secret">
+    <button onclick="toggleSecret(this)">Секрет №3 💕</button>
+    <div class="secret-text">
+      Я всегда буду рада быть рядом с тобой, поддерживать тебя и слушать твои истории!
+    </div>
+  </div>
+
+  <div class="secret">
+    <button onclick="toggleSecret(this)">Секрет №4 ✨</button>
+    <div class="secret-text">
+      Ты заслуживаешь всего самого прекрасного. И побольше денег тоже! 💸
+    </div>
+  </div>
+
+  <div class="secret">
+    <button onclick="toggleSecret(this)">Секрет №5 💌</button>
+    <div class="secret-text">
+      Спасибо, что ты у меня есть. Я очень ценю нашу дружбу. Люблю тебя, Маня! 💗
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>С ДНЁМ РОЖДЕНИЯЯЯ!!</h2>
+    <div style="font-size:75px">🐱 🎂 🎀 💗</div>
+    <p>Твоя Викуля ❤️</p>
+    <button onclick="restart()">Посмотреть ещё раз 🔄</button>
+  </div>
+</section>
+
+
+<!-- МУЗЫКАЛЬНЫЙ ПЛЕЕР ОСТАЁТСЯ НА ЭКРАНЕ -->
+
+<div class="music-player" id="musicPlayer">
   <iframe
     src="https://music.yandex.ru/iframe/album/6504367/track/47754370"
-    width="100%"
-    height="244"
-    frameborder="0"
     allow="clipboard-write"
-    style="border:none;border-radius:15px;"
-    title="Happy Birthday — Kids Now">
+    title="Музыка для Мани">
   </iframe>
-  <p><small>Если музыка не началась, нажми Play в плеере 💕</small></p>
-</section>
-
-<section class="card">
-  <h2>🎂 Твой праздничный тортик!</h2>
-  <div class="cake">🎂</div>
-  <p>Загадай самое заветное желание и задуй свечи!</p>
-  <button onclick="blowCandles()">Задуть свечи 🕯️</button>
-  <p id="wish"></p>
-</section>
-
-<section class="card">
-  <h2>💌 Самое главное...</h2>
-
-  <div class="message">
-<strong>МАШКА, С ДНЁМ РОЖДЕНИЯЯЯ!! 🎀💗</strong>
-
-Ну что, старушка, ещё на один год ближе к пенсии! 😂
-
-Желаю тебе денег столько, чтобы слово «скидка» перестало иметь для тебя значение, стальных нервов, удачи больше, чем у людей, которые случайно находят деньги в старых джинсах, поступить туда, куда планируешь, и любви такой, чтобы даже Hello Kitty обзавидовалась!
-
-А если серьёзно…
-
-Я очень рада, что ты есть в моей жизни. Спасибо тебе за наши разговоры, смех до слёз, странные приколы (Кевин Костнер), воспоминания и моменты («язык работает на 3%, а мозг на все 100%»), которые понятны только нам.
-
-Я хочу, чтобы ты всегда оставалась такой же яркой, смешной, красивой и немного сумасшедшей (ну куда без этого 😂).
-
-Пусть у тебя всё получается, мечты сбываются, рядом будут только искренние люди, а поводов плакать будет как можно меньше — и только от смеха.
-
-<strong>Я тебя очень люблю, моя Машка! С днём рождения! 💗🎂</strong>
-
-P.S. Не забывай, что ты прекрасна. Даже когда тупишь. Особенно когда тупишь. 🎀
-  </div>
-</section>
-
-<section class="card">
-  <h2>💗 Секретики для тебя</h2>
-  <p>Нажимай на сердечки — там спрятаны послания!</p>
-
-  <div class="secret">
-    <button onclick="toggleSecret(this)">💗 Секрет №1</button>
-    <p>Ты невероятная, даже если иногда сама этого не замечаешь! 🥹</p>
-  </div>
-
-  <div class="secret">
-    <button onclick="toggleSecret(this)">💗 Секрет №2</button>
-    <p>Никогда не переставай смеяться над нашими тупыми шутками 😂</p>
-  </div>
-
-  <div class="secret">
-    <button onclick="toggleSecret(this)">💗 Секрет №3</button>
-    <p>Я всегда буду рада быть рядом с тобой, поддерживать тебя и слушать твои истории! 🎀</p>
-  </div>
-
-  <div class="secret">
-    <button onclick="toggleSecret(this)">💗 Секрет №4</button>
-    <p>Ты заслуживаешь всего самого прекрасного. И побольше денег тоже! 💸</p>
-  </div>
-</section>
-
-<section>
-  <h1>С ДНЁМ РОЖДЕНИЯ, МАНЯ!! 💗</h1>
-  <p>Обнимаю крепко-крепко! 🎀</p>
-  <div style="font-size:55px">🐱 💗 🎂 🎀</div>
-</section>
-
 </div>
 
-<footer>
-  Сделано с огромной любовью для Машки 💗
-</footer>
+
+<!-- НАВИГАЦИЯ -->
+
+<div class="navigation">
+  <div class="progress" id="progress">
+    <span class="dot current"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+  <button class="secondary" onclick="previousScreen()">← Назад</button>
+  <button onclick="nextScreen()">Дальше →</button>
+</div>
+
+
+<footer>Сделано с огромной любовью для Машки 💗</footer>
+
 
 <script>
-let opened = false;
+let currentScreen = 1;
+let giftOpened = false;
+
+function showScreen(number) {
+  if (number < 1 || number > 5) return;
+
+  currentScreen = number;
+
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
+
+  document.getElementById("screen" + number).classList.add("active");
+
+  document.querySelectorAll(".dot").forEach((dot,index) => {
+    dot.classList.toggle("current", index === number - 1);
+  });
+
+  const player = document.getElementById("musicPlayer");
+  player.classList.toggle("visible", number >= 3);
+
+  window.scrollTo({top:0, behavior:"smooth"});
+
+  if (number === 2) hearts();
+}
 
 function openGift() {
-  if (opened) return;
+  if (giftOpened) {
+    showScreen(2);
+    return;
+  }
 
-  opened = true;
+  giftOpened = true;
   document.getElementById("gift").classList.add("open");
+  hearts();
 
   setTimeout(() => {
-    document.getElementById("content").classList.remove("hidden");
-    document.getElementById("content").scrollIntoView({
-      behavior: "smooth"
-    });
-    hearts();
-  }, 900);
+    showScreen(2);
+  }, 1400);
+}
+
+function nextScreen(number) {
+  if (number) {
+    showScreen(number);
+  } else {
+    showScreen(Math.min(5,currentScreen + 1));
+  }
+}
+
+function previousScreen() {
+  showScreen(Math.max(1,currentScreen - 1));
 }
 
 function toggleSecret(button) {
   button.parentElement.classList.toggle("show");
+
+  if (button.parentElement.classList.contains("show")) {
+    hearts();
+  }
 }
 
 function blowCandles() {
   document.getElementById("wish").textContent =
-    "✨ Пусть все твои желания обязательно сбудутся, Маня! 💗";
+    "✨ Пусть все твои желания сбудутся! Люблю тебя, Маня! 💗";
   hearts();
 }
 
 function hearts() {
-  const symbols = ["💗", "💕", "🎀", "💖", "✨"];
+  const symbols = ["💗","💕","🎀","💖","✨"];
 
-  for (let i = 0; i < 18; i++) {
+  for (let i=0;i<18;i++) {
     const heart = document.createElement("div");
     heart.className = "heart";
-    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (18 + Math.random() * 20) + "px";
-    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    heart.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (18 + Math.random()*22) + "px";
+    heart.style.animationDuration = (4 + Math.random()*3) + "s";
+
     document.body.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 8000);
+    setTimeout(() => heart.remove(),7500);
   }
+}
+
+function restart() {
+  giftOpened = false;
+  document.getElementById("gift").classList.remove("open");
+
+  document.querySelectorAll(".secret").forEach(secret => {
+    secret.classList.remove("show");
+  });
+
+  document.getElementById("wish").textContent = "";
+  document.getElementById("musicPlayer").classList.remove("visible");
+
+  showScreen(1);
 }
 </script>
 
